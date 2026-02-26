@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex – Pokémon Glazed</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background: #0d1117;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: #e6edf3;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(88,166,255,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(63,185,80,0.06) 0%, transparent 50%);
+        }
+        header {
+            background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+            border-bottom: 1px solid #30363d;
+            padding: 16px 30px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            font-family: monospace;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #58a6ff, #3fb950);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        header .sub { font-size: 0.73rem; color: #8b949e; letter-spacing: 1px; }
+        .region-pills { margin-left: auto; display: flex; gap: 8px; }
+        .region-pill {
+            padding: 4px 12px; border-radius: 6px;
+            font-size: 0.78rem; font-weight: 700;
+        }
+        .pill-tunod  { background: rgba(88,166,255,0.12); border: 1px solid rgba(88,166,255,0.25); color: #58a6ff; }
+        .pill-johto  { background: rgba(63,185,80,0.12);  border: 1px solid rgba(63,185,80,0.25);  color: #3fb950; }
+        .pill-rankor { background: rgba(247,129,102,0.12);border: 1px solid rgba(247,129,102,0.25);color: #f78166; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px 20px; }
+
+        /* TABS */
+        .tabs { display: flex; gap: 6px; margin-bottom: 24px; }
+        .tab-btn {
+            padding: 9px 22px; border-radius: 6px;
+            border: 1px solid #30363d; background: #161b22;
+            color: #8b949e; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+        .tab-btn.active { background: #58a6ff; border-color: #58a6ff; color: #000; }
+        .tab-btn:hover:not(.active) { border-color: #58a6ff; color: #e6edf3; }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* CONTROLS */
+        .top-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+        @media(max-width:640px){ .top-controls { grid-template-columns: 1fr; } }
+        .control-box { background: #161b22; border-radius: 12px; padding: 20px; border: 1px solid #30363d; }
+        .control-box label { display: block; margin-bottom: 10px; font-size: 0.92rem; color: #58a6ff; font-weight: 600; }
+        select, input[type=text] {
+            width: 100%; padding: 11px 15px; border-radius: 8px;
+            border: 2px solid #30363d; background: #21262d;
+            color: #e6edf3; font-size: 0.95rem; cursor: pointer; outline: none;
+            font-family: inherit;
+        }
+        select:focus, input:focus { border-color: #58a6ff; }
+        input::placeholder { color: #8b949e; }
+
+        /* LOC RESULTS */
+        .section-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 8px; border-bottom-width: 2px; border-bottom-style: solid; }
+        .legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; font-size: 0.77rem; }
+        .legend-item { display: flex; align-items: center; gap: 5px; color: #8b949e; }
+        .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .encounter-type { margin-bottom: 22px; }
+        .encounter-type h3 { font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px; color: #8b949e; margin-bottom: 10px; }
+        .pokemon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 10px; }
+        .pokemon-card {
+            background: #161b22; border-radius: 10px; padding: 10px 13px;
+            display: flex; align-items: center; gap: 8px; border-left: 4px solid;
+            transition: transform 0.18s, box-shadow 0.18s; cursor: default;
+        }
+        .pokemon-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+        .pokemon-sprite { width: 56px; height: 56px; image-rendering: pixelated; flex-shrink: 0; }
+        .pokemon-info { flex: 1; min-width: 0; }
+        .pokemon-name { font-weight: 700; font-size: 0.92rem; }
+        .pokemon-number { font-size: 0.7rem; color: #8b949e; }
+        .pokemon-level { font-size: 0.75rem; color: #aaa; margin-top: 1px; }
+        .rate-bar { width: 100%; height: 4px; background: #21262d; border-radius: 2px; margin-top: 5px; overflow: hidden; }
+        .rate-fill { height: 100%; border-radius: 2px; }
+        .encounter-rate { font-size: 1.05rem; font-weight: 800; text-align: right; flex-shrink: 0; min-width: 38px; }
+        .rate-high   { color: #2ecc71; border-color: #2ecc71; } .rate-high   .rate-fill { background: #2ecc71; }
+        .rate-medium { color: #f39c12; border-color: #f39c12; } .rate-medium .rate-fill { background: #f39c12; }
+        .rate-low    { color: #e74c3c; border-color: #e74c3c; } .rate-low    .rate-fill { background: #e74c3c; }
+        .rate-rare   { color: #9b59b6; border-color: #9b59b6; } .rate-rare   .rate-fill { background: #9b59b6; }
+
+        /* SEARCH */
+        .search-title { font-size: 1.2rem; font-weight: 700; color: #58a6ff; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #58a6ff; }
+        .search-item {
+            background: #161b22; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px;
+            display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap;
+        }
+        .search-item-sprite { width: 56px; height: 56px; image-rendering: pixelated; flex-shrink: 0; }
+        .search-item-name { font-weight: 700; font-size: 1rem; min-width: 140px; padding-top: 4px; }
+        .search-locs { flex: 1; font-size: 0.83rem; color: #aaa; }
+        .search-loc-tag {
+            display: inline-block; background: #21262d; border-radius: 5px;
+            padding: 3px 8px; margin: 2px; font-size: 0.77rem; border-left: 3px solid;
+        }
+        .region-tag {
+            display: inline-block; padding: 2px 8px; border-radius: 5px;
+            font-size: 0.69rem; font-weight: 700; margin-left: 6px; vertical-align: middle;
+        }
+        .no-result { text-align: center; padding: 40px; color: #666; font-size: 1rem; }
+
+        /* SPECIAL TAB */
+        .region-filter { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+        .reg-filter-btn {
+            padding: 7px 18px; border-radius: 6px; border: 1px solid #30363d;
+            background: #21262d; color: #8b949e; font-family: inherit;
+            font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+        }
+        .reg-filter-btn.active-all    { background: #58a6ff; border-color: #58a6ff; color: #000; }
+        .reg-filter-btn.active-tunod  { background: #58a6ff; border-color: #58a6ff; color: #000; }
+        .reg-filter-btn.active-johto  { background: #3fb950; border-color: #3fb950; color: #000; }
+        .reg-filter-btn.active-rankor { background: #f78166; border-color: #f78166; color: #000; }
+        .gift-section-header {
+            font-size: 1rem; font-weight: 700; color: #58a6ff; margin: 24px 0 14px;
+            text-transform: uppercase; letter-spacing: 1px;
+            padding-bottom: 6px; border-bottom: 1px solid #30363d;
+        }
+        .gift-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+        .gift-card {
+            background: #161b22; border-radius: 12px; padding: 14px 18px;
+            display: flex; gap: 14px; border-left: 5px solid;
+            align-items: center; transition: transform 0.18s, box-shadow 0.18s;
+        }
+        .gift-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+        .gift-sprite { width: 72px; height: 72px; image-rendering: pixelated; flex-shrink: 0; }
+        .gift-info { flex: 1; }
+        .gift-name { font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
+        .gift-number { font-size: 0.7rem; color: #8b949e; margin-bottom: 5px; }
+        .gift-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+        .gift-badge { border-radius: 5px; padding: 2px 8px; font-size: 0.69rem; font-weight: 700; color: #fff; }
+        .gift-level { font-size: 0.8rem; color: #aaa; margin-bottom: 2px; }
+        .gift-location { font-size: 0.8rem; color: #ccc; margin-bottom: 2px; }
+        .gift-how { font-size: 0.76rem; color: #8b949e; font-style: italic; line-height: 1.4; }
+        .note-tag { background: #e3350d; color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 0.66rem; margin-left: 4px; }
+    </style>
+</head>
+
+<body>
+
+<div id="csv-loader" style="
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    background:#0d1117;display:flex;align-items:center;justify-content:center;
+    z-index:9999;font-size:1.1rem;color:#58a6ff;flex-direction:column;gap:12px;
+">
+    <div style="font-size:2.5rem;animation:spin 1s linear infinite">⚙️</div>
+    <div>Ładowanie danych z CSV…</div>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+</div>
+
+<header>
+    <span style="font-size:2rem;filter:drop-shadow(0 0 8px rgba(88,166,255,0.5))">🎮</span>
+    <div>
+        <h1>Pokédex – Pokémon Glazed</h1>
+        <div class="sub">Tunod · Johto · Rankor · v8.6.3 (tudou9)</div>
+    </div>
+    <div class="region-pills">
+        <span class="region-pill pill-tunod">🌊 Tunod</span>
+        <span class="region-pill pill-johto">🌿 Johto</span>
+        <span class="region-pill pill-rankor">🔥 Rankor</span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('wild',this)">🌿 Dzikie Pokemony</button>
+        <button class="tab-btn" onclick="switchTab('special',this)">🎁 Specjalne / Jednorazowe</button>
+    </div>
+
+    <!-- TAB WILD -->
+    <div id="tab-wild" class="tab-panel active">
+        <div class="top-controls">
+            <div class="control-box">
+                <label>📍 Wybierz lokalizację:</label>
+                <select id="locationSelect" onchange="showByLocation()">
+                    <option value="">-- Wybierz lokalizację --</option>
+                    <optgroup label="🌊 Tunod – Trasy">
+                        <option value="tunod_route1">Route 1</option>
+                        <option value="tunod_route2">Route 2</option>
+                        <option value="tunod_route3">Route 3</option>
+                        <option value="tunod_route4">Route 4</option>
+                        <option value="tunod_route5">Route 5</option>
+                        <option value="tunod_route6">Route 6</option>
+                        <option value="tunod_route7">Route 7</option>
+                        <option value="tunod_route8">Route 8</option>
+                        <option value="tunod_route9">Route 9</option>
+                        <option value="tunod_route10">Route 10</option>
+                    </optgroup>
+                    <optgroup label="🌊 Tunod – Lokacje specjalne">
+                        <option value="chocco_town_cave">Chocco Town Cave</option>
+                        <option value="serenity_isle">Serenity Isle</option>
+                        <option value="haunted_forest">Haunted Forest</option>
+                        <option value="seaspray_dam">Seaspray Dam</option>
+                        <option value="oceanside_cave">Oceanside Cave</option>
+                        <option value="night_shade_forest">Night-Shade Forest</option>
+                        <option value="mt_stratus">Mt. Stratus</option>
+                        <option value="seaspray_ocean">Seaspray Ocean</option>
+                        <option value="stormy_seas">Stormy Seas</option>
+                    </optgroup>
+                    <optgroup label="🌿 Johto – Trasy">
+                        <option value="johto_route29">Route 29</option>
+                        <option value="johto_route30">Route 30</option>
+                        <option value="johto_route31">Route 31</option>
+                        <option value="johto_route32">Route 32</option>
+                        <option value="johto_route33">Route 33</option>
+                        <option value="johto_route34">Route 34</option>
+                        <option value="johto_route35">Route 35</option>
+                        <option value="johto_route36">Route 36</option>
+                        <option value="johto_route37">Route 37</option>
+                        <option value="johto_route38">Route 38</option>
+                        <option value="johto_route39">Route 39</option>
+                        <option value="johto_route40">Route 40</option>
+                        <option value="johto_route41">Route 41</option>
+                        <option value="johto_route42">Route 42</option>
+                        <option value="johto_route43">Route 43</option>
+                        <option value="johto_route44">Route 44</option>
+                        <option value="johto_route45">Route 45</option>
+                        <option value="johto_route46">Route 46</option>
+                    </optgroup>
+                    <optgroup label="🌿 Johto – Jaskinie i budynki">
+                        <option value="dark_cave">Dark Cave</option>
+                        <option value="union_cave">Union Cave</option>
+                        <option value="slowpoke_well">Slowpoke Well</option>
+                        <option value="national_park">National Park</option>
+                        <option value="burned_tower">Burned Tower</option>
+                        <option value="ice_path">Ice Path</option>
+                        <option value="mt_mortar">Mt. Mortar</option>
+                        <option value="victory_road_johto">Victory Road (Johto)</option>
+                    </optgroup>
+                    <optgroup label="🔥 Rankor – Trasy">
+                        <option value="rankor_route1">Route 1</option>
+                        <option value="rankor_route2">Route 2</option>
+                        <option value="rankor_route3">Route 3</option>
+                        <option value="rankor_route4">Route 4</option>
+                        <option value="rankor_route5">Route 5</option>
+                    </optgroup>
+                    <optgroup label="🔥 Rankor – Lokacje specjalne">
+                        <option value="mt_furnace">Mt. Furnace</option>
+                        <option value="volcanic_cave">Volcanic Cave</option>
+                        <option value="rankor_forest">Rankor Forest</option>
+                        <option value="victory_road_rankor">Victory Road (Rankor)</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="control-box">
+                <label>🔍 Szukaj pokemona po nazwie:</label>
+                <input type="text" id="searchInput" placeholder="np. Larvitar, Eevee, Gastly..." oninput="searchPokemon()" autocomplete="off">
+            </div>
+        </div>
+        <div id="searchResults" style="display:none"></div>
+        <div id="locResults"></div>
+    </div>
+
+    <!-- TAB SPECIAL -->
+    <div id="tab-special" class="tab-panel">
+        <div class="region-filter">
+            <button class="reg-filter-btn active-all" onclick="setRegionFilter('all',this)">🌐 Wszystkie</button>
+            <button class="reg-filter-btn" onclick="setRegionFilter('tunod',this)">🌊 Tunod</button>
+            <button class="reg-filter-btn" onclick="setRegionFilter('johto',this)">🌿 Johto</button>
+            <button class="reg-filter-btn" onclick="setRegionFilter('rankor',this)">🔥 Rankor</button>
+        </div>
+        <div class="gift-section-header">⭐ Startery</div>
+        <div class="gift-grid" id="grid-starters"></div>
+        <div class="gift-section-header">🎁 Darmowe Prezenty</div>
+        <div class="gift-grid" id="grid-gifts"></div>
+        <div class="gift-section-header">🪨 Skamieniałości</div>
+        <div class="gift-grid" id="grid-fossils"></div>
+        <div class="gift-section-header">👑 Legendarne & Wyjątkowe</div>
+        <div class="gift-grid" id="grid-legendary"></div>
+        <div class="gift-section-header">🔄 Wymiany z NPC</div>
+        <div class="gift-grid" id="grid-trades"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script>
+// ── SPRITE ────────────────────────────────────────────────
+const SPRITE = id => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+const PAD = n => String(n).padStart(3,'0');
+
+// ── REGION CONFIG ─────────────────────────────────────────
+const REGIONS = {
+    tunod:  { label: 'Tunod',  color: '#58a6ff', emoji: '🌊' },
+    johto:  { label: 'Johto',  color: '#3fb950', emoji: '🌿' },
+    rankor: { label: 'Rankor', color: '#f78166', emoji: '🔥' },
+};
+
+// ── BADGE CONFIG ──────────────────────────────────────────
+const BADGE_META = {
+    starter:   { label: '⭐ Starter',        color: '#27ae60' },
+    gift:      { label: '🎁 Prezent',        color: '#2980b9' },
+    fossil:    { label: '🪨 Skamieniałość',  color: '#7f8c8d' },
+    legendary: { label: '👑 Legendarny',     color: '#8e44ad' },
+    roaming:   { label: '🌀 Wędrujący',      color: '#d35400' },
+    trade:     { label: '🔄 Wymiana',        color: '#c0392b' },
+};
+
+// ── RATE HELPERS ──────────────────────────────────────────
+function getRateClass(r){ return r>=40?'rate-high':r>=15?'rate-medium':r>=5?'rate-low':'rate-rare'; }
+const RATE_COLORS = { 'rate-high':'#2ecc71','rate-medium':'#f39c12','rate-low':'#e74c3c','rate-rare':'#9b59b6' };
+
+// ══════════════════════════════════════════════════════════
+//  DATA – loaded from CSV
+// ══════════════════════════════════════════════════════════
+let L = {};        // location key → { name, region, encounters: { type: [{id,name,level,rate}] } }
+let SPECIAL = { starters:[], gifts:[], fossils:[], legendary:[], trades:[] };
+let searchIndex = [];
+
+function buildL(rows){
+    for(const row of rows){
+        const key = row.loc_key;
+        if(!L[key]) L[key] = { name: row.location, region: row.region, encounters: {} };
+        const enc = row.encounter_type;
+        if(!L[key].encounters[enc]) L[key].encounters[enc] = [];
+        L[key].encounters[enc].push({
+            id: parseInt(row.pokemon_id),
+            name: row.pokemon_name,
+            level: row.level,
+            rate: parseInt(row.rate)
+        });
+    }
+}
+
+function buildSpecial(rows){
+    for(const row of rows){
+        const cat = row.category;
+        if(!SPECIAL[cat]) SPECIAL[cat] = [];
+        SPECIAL[cat].push({
+            id: parseInt(row.pokemon_id),
+            name: row.pokemon_name,
+            level: parseInt(row.level),
+            location: row.location,
+            how: row.how,
+            badge: row.badge,
+            region: row.region,
+            note: row.note || ''
+        });
+    }
+}
+
+function buildSearchIndex(){
+    searchIndex = [];
+    for(const [locKey, locData] of Object.entries(L)){
+        for(const [typeName, mons] of Object.entries(locData.encounters)){
+            for(const p of mons){
+                let ex = searchIndex.find(x => x.id===p.id && x.name===p.name);
+                if(!ex){ ex={id:p.id,name:p.name,region:locData.region,locations:[]}; searchIndex.push(ex); }
+                if(!ex.locations.find(l=>l.locKey===locKey&&l.type===typeName))
+                    ex.locations.push({locKey,locName:locData.name,type:typeName,level:p.level,rate:p.rate,region:locData.region});
+            }
+        }
+    }
+    searchIndex.sort((a,b)=>a.id-b.id);
+}
+
+function loadCSV(url){
+    return new Promise((resolve, reject) => {
+        Papa.parse(url, {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: results => resolve(results.data),
+            error: err => reject(err)
+        });
+    });
+}
+
+async function init(){
+    const loader = document.getElementById('csv-loader');
+    try {
+        const [wildRows, specialRows] = await Promise.all([
+            loadCSV('glazed_wild.csv'),
+            loadCSV('glazed_special.csv')
+        ]);
+        buildL(wildRows);
+        buildSpecial(specialRows);
+        buildSearchIndex();
+        if(loader) loader.remove();
+        renderSpecial();
+        populateLocationSelect();
+    } catch(e) {
+        if(loader) loader.innerHTML = `<span style="color:#f78166">❌ Błąd ładowania CSV: ${e.message || e}<br>Upewnij się, że pliki glazed_wild.csv i glazed_special.csv są w tym samym folderze co HTML.</span>`;
+        console.error(e);
+    }
+}
+
+function populateLocationSelect(){
+    const sel = document.getElementById('locationSelect');
+    // Group by region order
+    const regionOrder = ['tunod','johto','rankor'];
+    const regionLabels = { tunod:'🌊 Tunod', johto:'🌿 Johto', rankor:'🔥 Rankor' };
+    const groups = { tunod:[], johto:[], rankor:[] };
+    for(const [key, loc] of Object.entries(L)){
+        if(groups[loc.region]) groups[loc.region].push({key, name:loc.name});
+    }
+    let html = '<option value="">— wybierz lokację —</option>';
+    for(const region of regionOrder){
+        html += `<optgroup label="${regionLabels[region]}">`;
+        for(const loc of groups[region]){
+            html += `<option value="${loc.key}">${loc.name}</option>`;
+        }
+        html += '</optgroup>';
+    }
+    sel.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════════
+//  RENDER SPECIAL CARDS
+// ══════════════════════════════════════════════════════════
+const GRID_MAP = {starters:'grid-starters',gifts:'grid-gifts',fossils:'grid-fossils',legendary:'grid-legendary',trades:'grid-trades'};
+let currentRegionFilter = 'all';
+
+function renderSpecial(){
+    for(const [key, gridId] of Object.entries(GRID_MAP)){
+        const grid = document.getElementById(gridId);
+        if(!grid) continue;
+        let html='';
+        for(const p of (SPECIAL[key]||[])){
+            if(currentRegionFilter!=='all' && p.region!==currentRegionFilter) continue;
+            const bm = BADGE_META[p.badge] || {label:p.badge,color:'#555'};
+            const rg = REGIONS[p.region] || {color:'#555',emoji:'',label:p.region};
+            html+=`<div class="gift-card" style="border-color:${bm.color}">
+                <img src="${SPRITE(p.id)}" class="gift-sprite" alt="${p.name}" onerror="this.style.opacity='0.2'">
+                <div class="gift-info">
+                    <div class="gift-name">${p.name}${p.note?`<span class="note-tag">${p.note}</span>`:''}</div>
+                    <div class="gift-number">#${PAD(p.id)}</div>
+                    <div class="gift-badges">
+                        <span class="gift-badge" style="background:${bm.color}">${bm.label}</span>
+                        <span class="gift-badge" style="background:${rg.color}22;color:${rg.color};border:1px solid ${rg.color}44">${rg.emoji} ${rg.label}</span>
+                    </div>
+                    <div class="gift-level">Poziom: ${p.level}</div>
+                    <div class="gift-location">📍 ${p.location}</div>
+                    <div class="gift-how">💡 ${p.how}</div>
+                </div>
+            </div>`;
+        }
+        grid.innerHTML = html || `<div style="color:#666;font-size:0.9rem;padding:10px">Brak wyników dla wybranego regionu.</div>`;
+    }
+}
+
+function setRegionFilter(val, btn){
+    currentRegionFilter = val;
+    document.querySelectorAll('.reg-filter-btn').forEach(b=>{ b.className='reg-filter-btn'; });
+    btn.className = `reg-filter-btn active-${val}`;
+    renderSpecial();
+}
+
+// ══════════════════════════════════════════════════════════
+//  LOCATION VIEW
+// ══════════════════════════════════════════════════════════
+function showByLocation(){
+    const val = document.getElementById('locationSelect').value;
+    document.getElementById('searchInput').value='';
+    document.getElementById('searchResults').style.display='none';
+    const el = document.getElementById('locResults');
+    if(!val || !L[val]){ el.innerHTML=''; return; }
+    const loc = L[val];
+    const rc = REGIONS[loc.region] || {color:'#58a6ff',emoji:'📍',label:loc.region};
+    let html = `<div class="section-title" style="color:${rc.color};border-color:${rc.color}">📍 ${loc.name}</div>
+    <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#2ecc71"></div> ≥40% Pospolity</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#f39c12"></div> 15–39% Niezbyt częsty</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#e74c3c"></div> 5–14% Rzadki</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#9b59b6"></div> &lt;5% Bardzo rzadki</div>
+    </div>`;
+    for(const [typeName, mons] of Object.entries(loc.encounters)){
+        html += `<div class="encounter-type"><h3>🎯 ${typeName}</h3><div class="pokemon-grid">`;
+        for(const p of [...mons].sort((a,b)=>b.rate-a.rate)){
+            const cls = getRateClass(p.rate);
+            html += `<div class="pokemon-card ${cls}">
+                <img src="${SPRITE(p.id)}" class="pokemon-sprite" alt="${p.name}" onerror="this.style.opacity='0.2'">
+                <div class="pokemon-info">
+                    <div class="pokemon-name">${p.name}</div>
+                    <div class="pokemon-number">#${PAD(p.id)}</div>
+                    <div class="pokemon-level">Lv. ${p.level}</div>
+                    <div class="rate-bar"><div class="rate-fill" style="width:${Math.min(p.rate,100)}%"></div></div>
+                </div>
+                <div class="encounter-rate">${p.rate}%</div>
+            </div>`;
+        }
+        html += `</div></div>`;
+    }
+    el.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════════
+//  SEARCH
+// ══════════════════════════════════════════════════════════
+function searchPokemon(){
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    document.getElementById('locationSelect').value='';
+    document.getElementById('locResults').innerHTML='';
+    const sr = document.getElementById('searchResults');
+    if(q.length<2){ sr.style.display='none'; return; }
+    const matches = searchIndex.filter(p=>p.name.toLowerCase().includes(q));
+    if(!matches.length){
+        sr.innerHTML=`<div class="no-result">😔 Nie znaleziono "<b>${q}</b>" jako dzikiego pokemona w żadnym regionie.<br><span style="font-size:0.85rem;color:#888">Sprawdź zakładkę 🎁 Specjalne!</span></div>`;
+        sr.style.display='block'; return;
+    }
+    let html=`<div class="search-title">🔍 Wyniki dla: "<b>${q}</b>" — ${matches.length} pokemon(ów)</div>`;
+    for(const p of matches){
+        const rg = REGIONS[p.region] || {color:'#58a6ff',emoji:'',label:p.region};
+        html+=`<div class="search-item" style="border-left:4px solid ${rg.color}">
+            <img src="${SPRITE(p.id)}" class="search-item-sprite" alt="${p.name}" onerror="this.style.opacity='0.2'">
+            <div class="search-item-name">
+                ${p.name} <span style="font-size:0.72rem;color:#8b949e">#${PAD(p.id)}</span>
+                <span class="region-tag" style="background:${rg.color}22;color:${rg.color};border:1px solid ${rg.color}44">${rg.emoji} ${rg.label}</span>
+            </div>
+            <div class="search-locs">`;
+        for(const loc of p.locations){
+            const cls=getRateClass(loc.rate);
+            html+=`<span class="search-loc-tag" style="border-color:${RATE_COLORS[cls]}">📍 <b>${loc.locName}</b> · ${loc.type} · Lv.${loc.level} · <b>${loc.rate}%</b></span>`;
+        }
+        html+=`</div></div>`;
+    }
+    sr.innerHTML=html; sr.style.display='block';
+}
+
+// ══════════════════════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════════════════════
+function switchTab(t, btn){
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('tab-'+t).classList.add('active');
+    btn.classList.add('active');
+}
+
+// ── START ─────────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
