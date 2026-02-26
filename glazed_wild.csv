@@ -1,0 +1,239 @@
+loc_key,location,region,encounter_type,pokemon_id,pokemon_name,level,rate
+tunod_route1,Route 1 (Tunod),tunod,Trawa 🌿,21,Spearow,2-4,35
+tunod_route1,Route 1 (Tunod),tunod,Trawa 🌿,16,Pidgey,2-4,30
+tunod_route1,Route 1 (Tunod),tunod,Trawa 🌿,263,Zigzagoon,2-4,20
+tunod_route1,Route 1 (Tunod),tunod,Trawa 🌿,19,Rattata,2-4,15
+tunod_route2,Route 2 (Tunod),tunod,Trawa 🌿,16,Pidgey,3-5,30
+tunod_route2,Route 2 (Tunod),tunod,Trawa 🌿,263,Zigzagoon,3-5,25
+tunod_route2,Route 2 (Tunod),tunod,Trawa 🌿,19,Rattata,3-5,25
+tunod_route2,Route 2 (Tunod),tunod,Trawa 🌿,43,Oddish,3-5,20
+tunod_route3,Route 3 (Tunod),tunod,Trawa 🌿,16,Pidgey,5-8,25
+tunod_route3,Route 3 (Tunod),tunod,Trawa 🌿,43,Oddish,5-8,20
+tunod_route3,Route 3 (Tunod),tunod,Trawa 🌿,351,Castform,6-8,15
+tunod_route3,Route 3 (Tunod),tunod,Trawa 🌿,60,Poliwag,5-8,20
+tunod_route3,Route 3 (Tunod),tunod,Trawa 🌿,283,Surskit,5-7,20
+tunod_route3,Route 3 (Tunod),tunod,Surfowanie 🏄,60,Poliwag,10-20,65
+tunod_route3,Route 3 (Tunod),tunod,Surfowanie 🏄,61,Poliwhirl,15-25,35
+tunod_route4,Route 4 (Tunod),tunod,Trawa 🌿,263,Zigzagoon,7-10,30
+tunod_route4,Route 4 (Tunod),tunod,Trawa 🌿,228,Houndour,7-10,25
+tunod_route4,Route 4 (Tunod),tunod,Trawa 🌿,58,Growlithe,7-10,25
+tunod_route4,Route 4 (Tunod),tunod,Trawa 🌿,261,Poochyena,7-10,20
+tunod_route5,Route 5 (Tunod),tunod,Trawa 🌿,300,Skitty,10-13,25
+tunod_route5,Route 5 (Tunod),tunod,Trawa 🌿,43,Oddish,10-13,25
+tunod_route5,Route 5 (Tunod),tunod,Trawa 🌿,44,Gloom,12-15,20
+tunod_route5,Route 5 (Tunod),tunod,Trawa 🌿,351,Castform,10-13,15
+tunod_route5,Route 5 (Tunod),tunod,Trawa 🌿,285,Shroomish,10-13,15
+tunod_route6,Route 6 (Tunod),tunod,Trawa 🌿,285,Shroomish,12-15,30
+tunod_route6,Route 6 (Tunod),tunod,Trawa 🌿,43,Oddish,12-15,25
+tunod_route6,Route 6 (Tunod),tunod,Trawa 🌿,37,Vulpix,12-15,25
+tunod_route6,Route 6 (Tunod),tunod,Trawa 🌿,300,Skitty,12-15,20
+tunod_route7,Route 7 (Tunod),tunod,Trawa 🌿,273,Seedot,13-17,30
+tunod_route7,Route 7 (Tunod),tunod,Trawa 🌿,309,Electrike,13-17,25
+tunod_route7,Route 7 (Tunod),tunod,Trawa 🌿,311,Plusle,13-17,15
+tunod_route7,Route 7 (Tunod),tunod,Trawa 🌿,312,Minun,13-17,15
+tunod_route7,Route 7 (Tunod),tunod,Trawa 🌿,177,Natu,13-17,15
+tunod_route8,Route 8 (Tunod),tunod,Trawa 🌿,333,Swablu,15-18,30
+tunod_route8,Route 8 (Tunod),tunod,Trawa 🌿,177,Natu,15-18,25
+tunod_route8,Route 8 (Tunod),tunod,Trawa 🌿,273,Seedot,15-18,25
+tunod_route8,Route 8 (Tunod),tunod,Trawa 🌿,309,Electrike,15-18,20
+tunod_route9,Route 9 (Tunod),tunod,Trawa 🌿,27,Sandshrew,18-22,30
+tunod_route9,Route 9 (Tunod),tunod,Trawa 🌿,322,Numel,18-22,25
+tunod_route9,Route 9 (Tunod),tunod,Trawa 🌿,111,Rhyhorn,18-22,25
+tunod_route9,Route 9 (Tunod),tunod,Trawa 🌿,231,Phanpy,18-22,20
+tunod_route10,Route 10 (Tunod),tunod,Trawa 🌿,322,Numel,20-24,30
+tunod_route10,Route 10 (Tunod),tunod,Trawa 🌿,111,Rhyhorn,20-24,25
+tunod_route10,Route 10 (Tunod),tunod,Trawa 🌿,27,Sandshrew,20-24,25
+tunod_route10,Route 10 (Tunod),tunod,Trawa 🌿,328,Trapinch,20-24,20
+tunod_route10,Route 10 (Tunod),tunod,Surfowanie 🏄,283,Surskit,20-30,60
+tunod_route10,Route 10 (Tunod),tunod,Surfowanie 🏄,54,Psyduck,20-30,40
+chocco_town_cave,Chocco Town Cave,tunod,Jaskinia 🕳️,41,Zubat,5-9,40
+chocco_town_cave,Chocco Town Cave,tunod,Jaskinia 🕳️,74,Geodude,5-9,35
+chocco_town_cave,Chocco Town Cave,tunod,Jaskinia 🕳️,293,Whismur,5-9,25
+serenity_isle,Serenity Isle,tunod,Trawa 🌿,41,Zubat,10-14,30
+serenity_isle,Serenity Isle,tunod,Trawa 🌿,355,Duskull,10-14,25
+serenity_isle,Serenity Isle,tunod,Trawa 🌿,353,Shuppet,10-14,25
+serenity_isle,Serenity Isle,tunod,Trawa 🌿,200,Misdreavus,10-14,20
+haunted_forest,Haunted Forest,tunod,Trawa 🌿,92,Gastly,14-18,35
+haunted_forest,Haunted Forest,tunod,Trawa 🌿,353,Shuppet,14-18,30
+haunted_forest,Haunted Forest,tunod,Trawa 🌿,355,Duskull,14-18,20
+haunted_forest,Haunted Forest,tunod,Trawa 🌿,200,Misdreavus,14-18,15
+seaspray_dam,Seaspray Dam,tunod,Surfowanie 🏄,54,Psyduck,15-25,55
+seaspray_dam,Seaspray Dam,tunod,Surfowanie 🏄,55,Golduck,20-30,25
+seaspray_dam,Seaspray Dam,tunod,Surfowanie 🏄,60,Poliwag,15-25,20
+seaspray_dam,Seaspray Dam,tunod,Wędkowanie 🎣,129,Magikarp,5-15,60
+seaspray_dam,Seaspray Dam,tunod,Wędkowanie 🎣,118,Goldeen,10-20,40
+oceanside_cave,Oceanside Cave,tunod,Jaskinia 🕳️,41,Zubat,18-23,35
+oceanside_cave,Oceanside Cave,tunod,Jaskinia 🕳️,42,Golbat,22-27,20
+oceanside_cave,Oceanside Cave,tunod,Jaskinia 🕳️,74,Geodude,18-23,25
+oceanside_cave,Oceanside Cave,tunod,Jaskinia 🕳️,95,Onix,18-23,20
+oceanside_cave,Oceanside Cave,tunod,Surfowanie 🏄,72,Tentacool,15-30,65
+oceanside_cave,Oceanside Cave,tunod,Surfowanie 🏄,73,Tentacruel,25-35,35
+night_shade_forest,Night-Shade Forest,tunod,Trawa 🌿,198,Murkrow,20-24,30
+night_shade_forest,Night-Shade Forest,tunod,Trawa 🌿,92,Gastly,20-24,25
+night_shade_forest,Night-Shade Forest,tunod,Trawa 🌿,261,Poochyena,20-24,25
+night_shade_forest,Night-Shade Forest,tunod,Trawa 🌿,262,Mightyena,22-26,20
+mt_stratus,Mt. Stratus,tunod,Trawa 🌿,333,Swablu,22-28,30
+mt_stratus,Mt. Stratus,tunod,Trawa 🌿,334,Altaria,28-33,15
+mt_stratus,Mt. Stratus,tunod,Trawa 🌿,41,Zubat,22-28,25
+mt_stratus,Mt. Stratus,tunod,Trawa 🌿,42,Golbat,26-30,15
+mt_stratus,Mt. Stratus,tunod,Trawa 🌿,246,Larvitar,22-28,15
+mt_stratus,Mt. Stratus,tunod,Jaskinia 🕳️,41,Zubat,20-28,40
+mt_stratus,Mt. Stratus,tunod,Jaskinia 🕳️,42,Golbat,25-32,20
+mt_stratus,Mt. Stratus,tunod,Jaskinia 🕳️,74,Geodude,20-28,25
+mt_stratus,Mt. Stratus,tunod,Jaskinia 🕳️,95,Onix,20-28,15
+seaspray_ocean,Seaspray Ocean,tunod,Surfowanie 🏄,72,Tentacool,20-35,60
+seaspray_ocean,Seaspray Ocean,tunod,Surfowanie 🏄,73,Tentacruel,30-40,25
+seaspray_ocean,Seaspray Ocean,tunod,Surfowanie 🏄,278,Wingull,20-30,15
+stormy_seas,Stormy Seas,tunod,Surfowanie 🏄,72,Tentacool,25-40,50
+stormy_seas,Stormy Seas,tunod,Surfowanie 🏄,73,Tentacruel,35-45,30
+stormy_seas,Stormy Seas,tunod,Surfowanie 🏄,319,Sharpedo,30-40,20
+johto_route29,Route 29 (Johto),johto,Trawa 🌿,16,Pidgey,2-4,35
+johto_route29,Route 29 (Johto),johto,Trawa 🌿,19,Rattata,2-4,35
+johto_route29,Route 29 (Johto),johto,Trawa 🌿,161,Sentret,2-4,30
+johto_route30,Route 30 (Johto),johto,Trawa 🌿,16,Pidgey,3-5,30
+johto_route30,Route 30 (Johto),johto,Trawa 🌿,161,Sentret,3-5,30
+johto_route30,Route 30 (Johto),johto,Trawa 🌿,187,Hoppip,3-5,20
+johto_route30,Route 30 (Johto),johto,Trawa 🌿,46,Paras,3-5,20
+johto_route31,Route 31 (Johto),johto,Trawa 🌿,161,Sentret,4-6,30
+johto_route31,Route 31 (Johto),johto,Trawa 🌿,187,Hoppip,4-6,25
+johto_route31,Route 31 (Johto),johto,Trawa 🌿,46,Paras,4-6,20
+johto_route31,Route 31 (Johto),johto,Trawa 🌿,92,Gastly,4-6,25
+johto_route32,Route 32 (Johto),johto,Trawa 🌿,161,Sentret,6-9,30
+johto_route32,Route 32 (Johto),johto,Trawa 🌿,187,Hoppip,6-9,25
+johto_route32,Route 32 (Johto),johto,Trawa 🌿,60,Poliwag,6-9,25
+johto_route32,Route 32 (Johto),johto,Trawa 🌿,116,Horsea,6-9,20
+johto_route32,Route 32 (Johto),johto,Surfowanie 🏄,60,Poliwag,10-20,65
+johto_route32,Route 32 (Johto),johto,Surfowanie 🏄,61,Poliwhirl,15-25,35
+johto_route33,Route 33 (Johto),johto,Trawa 🌿,194,Wooper,8-12,35
+johto_route33,Route 33 (Johto),johto,Trawa 🌿,74,Geodude,8-12,30
+johto_route33,Route 33 (Johto),johto,Trawa 🌿,261,Poochyena,8-12,35
+johto_route34,Route 34 (Johto),johto,Trawa 🌿,167,Spinarak,10-14,30
+johto_route34,Route 34 (Johto),johto,Trawa 🌿,191,Sunkern,10-14,30
+johto_route34,Route 34 (Johto),johto,Trawa 🌿,137,Porygon,10-14,10
+johto_route34,Route 34 (Johto),johto,Trawa 🌿,163,Hoothoot,10-14,30
+johto_route35,Route 35 (Johto),johto,Trawa 🌿,163,Hoothoot,12-16,30
+johto_route35,Route 35 (Johto),johto,Trawa 🌿,167,Spinarak,12-16,25
+johto_route35,Route 35 (Johto),johto,Trawa 🌿,83,Farfetch'd,12-16,20
+johto_route35,Route 35 (Johto),johto,Trawa 🌿,191,Sunkern,12-16,25
+johto_route36,Route 36 (Johto),johto,Trawa 🌿,179,Mareep,13-17,25
+johto_route36,Route 36 (Johto),johto,Trawa 🌿,163,Hoothoot,13-17,25
+johto_route36,Route 36 (Johto),johto,Trawa 🌿,167,Spinarak,13-17,25
+johto_route36,Route 36 (Johto),johto,Trawa 🌿,191,Sunkern,13-17,25
+johto_route37,Route 37 (Johto),johto,Trawa 🌿,179,Mareep,14-18,30
+johto_route37,Route 37 (Johto),johto,Trawa 🌿,165,Ledyba,14-18,25
+johto_route37,Route 37 (Johto),johto,Trawa 🌿,163,Hoothoot,14-18,25
+johto_route37,Route 37 (Johto),johto,Trawa 🌿,198,Murkrow,14-18,20
+johto_route38,Route 38 (Johto),johto,Trawa 🌿,241,Miltank,18-23,20
+johto_route38,Route 38 (Johto),johto,Trawa 🌿,235,Smeargle,18-23,15
+johto_route38,Route 38 (Johto),johto,Trawa 🌿,180,Flaaffy,18-23,25
+johto_route38,Route 38 (Johto),johto,Trawa 🌿,128,Tauros,18-23,25
+johto_route38,Route 38 (Johto),johto,Trawa 🌿,50,Diglett,18-23,15
+johto_route39,Route 39 (Johto),johto,Trawa 🌿,241,Miltank,20-24,25
+johto_route39,Route 39 (Johto),johto,Trawa 🌿,128,Tauros,20-24,25
+johto_route39,Route 39 (Johto),johto,Trawa 🌿,180,Flaaffy,20-24,25
+johto_route39,Route 39 (Johto),johto,Trawa 🌿,235,Smeargle,20-24,25
+johto_route40,Route 40 (Johto),johto,Surfowanie 🏄,72,Tentacool,20-35,60
+johto_route40,Route 40 (Johto),johto,Surfowanie 🏄,73,Tentacruel,30-40,25
+johto_route40,Route 40 (Johto),johto,Surfowanie 🏄,278,Wingull,20-30,15
+johto_route41,Route 41 (Johto),johto,Surfowanie 🏄,72,Tentacool,25-40,55
+johto_route41,Route 41 (Johto),johto,Surfowanie 🏄,73,Tentacruel,30-45,30
+johto_route41,Route 41 (Johto),johto,Surfowanie 🏄,319,Sharpedo,25-35,15
+johto_route42,Route 42 (Johto),johto,Trawa 🌿,246,Larvitar,23-28,30
+johto_route42,Route 42 (Johto),johto,Trawa 🌿,234,Stantler,23-28,25
+johto_route42,Route 42 (Johto),johto,Trawa 🌿,21,Spearow,23-28,25
+johto_route42,Route 42 (Johto),johto,Trawa 🌿,22,Fearow,25-30,20
+johto_route43,Route 43 (Johto),johto,Trawa 🌿,234,Stantler,25-30,35
+johto_route43,Route 43 (Johto),johto,Trawa 🌿,198,Murkrow,25-30,25
+johto_route43,Route 43 (Johto),johto,Trawa 🌿,17,Pidgeotto,25-30,25
+johto_route43,Route 43 (Johto),johto,Trawa 🌿,193,Yanma,25-30,15
+johto_route44,Route 44 (Johto),johto,Trawa 🌿,126,Magmar,28-33,25
+johto_route44,Route 44 (Johto),johto,Trawa 🌿,225,Delibird,28-33,25
+johto_route44,Route 44 (Johto),johto,Trawa 🌿,214,Heracross,28-33,25
+johto_route44,Route 44 (Johto),johto,Trawa 🌿,210,Granbull,28-33,25
+johto_route45,Route 45 (Johto),johto,Trawa 🌿,246,Larvitar,30-35,30
+johto_route45,Route 45 (Johto),johto,Trawa 🌿,231,Phanpy,30-35,25
+johto_route45,Route 45 (Johto),johto,Trawa 🌿,232,Donphan,32-37,20
+johto_route45,Route 45 (Johto),johto,Trawa 🌿,74,Geodude,30-35,25
+johto_route46,Route 46 (Johto),johto,Trawa 🌿,231,Phanpy,22-26,35
+johto_route46,Route 46 (Johto),johto,Trawa 🌿,74,Geodude,22-26,35
+johto_route46,Route 46 (Johto),johto,Trawa 🌿,19,Rattata,22-26,30
+dark_cave,Dark Cave (Johto),johto,Jaskinia 🕳️,41,Zubat,10-18,40
+dark_cave,Dark Cave (Johto),johto,Jaskinia 🕳️,74,Geodude,10-18,30
+dark_cave,Dark Cave (Johto),johto,Jaskinia 🕳️,190,Aipom,10-18,15
+dark_cave,Dark Cave (Johto),johto,Jaskinia 🕳️,206,Dunsparce,10-18,15
+union_cave,Union Cave (Johto),johto,Jaskinia 🕳️,74,Geodude,8-14,35
+union_cave,Union Cave (Johto),johto,Jaskinia 🕳️,41,Zubat,8-14,30
+union_cave,Union Cave (Johto),johto,Jaskinia 🕳️,95,Onix,8-14,20
+union_cave,Union Cave (Johto),johto,Jaskinia 🕳️,194,Wooper,8-14,15
+union_cave,Union Cave (Johto),johto,Surfowanie 🏄,195,Quagsire,15-25,65
+union_cave,Union Cave (Johto),johto,Surfowanie 🏄,194,Wooper,10-20,35
+slowpoke_well,Slowpoke Well (Johto),johto,Jaskinia 🕳️,79,Slowpoke,10-16,65
+slowpoke_well,Slowpoke Well (Johto),johto,Jaskinia 🕳️,41,Zubat,10-16,35
+slowpoke_well,Slowpoke Well (Johto),johto,Surfowanie 🏄,79,Slowpoke,15-25,70
+slowpoke_well,Slowpoke Well (Johto),johto,Surfowanie 🏄,80,Slowbro,20-30,30
+national_park,National Park (Johto),johto,Trawa 🌿,165,Ledyba,12-15,20
+national_park,National Park (Johto),johto,Trawa 🌿,167,Spinarak,12-15,20
+national_park,National Park (Johto),johto,Trawa 🌿,191,Sunkern,12-15,20
+national_park,National Park (Johto),johto,Trawa 🌿,193,Yanma,12-15,15
+national_park,National Park (Johto),johto,Trawa 🌿,187,Hoppip,12-15,15
+national_park,National Park (Johto),johto,Trawa 🌿,214,Heracross,12-15,10
+burned_tower,Burned Tower (Ecruteak),johto,Jaskinia 🕳️,41,Zubat,15-20,40
+burned_tower,Burned Tower (Ecruteak),johto,Jaskinia 🕳️,92,Gastly,15-20,35
+burned_tower,Burned Tower (Ecruteak),johto,Jaskinia 🕳️,21,Spearow,15-20,25
+ice_path,Ice Path (Johto),johto,Jaskinia 🕳️,41,Zubat,22-28,30
+ice_path,Ice Path (Johto),johto,Jaskinia 🕳️,220,Swinub,22-28,35
+ice_path,Ice Path (Johto),johto,Jaskinia 🕳️,215,Sneasel,22-28,20
+ice_path,Ice Path (Johto),johto,Jaskinia 🕳️,225,Delibird,22-28,15
+ice_path,Ice Path (Johto),johto,Surfowanie 🏄,87,Dewgong,25-35,65
+ice_path,Ice Path (Johto),johto,Surfowanie 🏄,86,Seel,20-30,35
+mt_mortar,Mt. Mortar (Johto),johto,Jaskinia 🕳️,74,Geodude,18-25,30
+mt_mortar,Mt. Mortar (Johto),johto,Jaskinia 🕳️,41,Zubat,18-25,25
+mt_mortar,Mt. Mortar (Johto),johto,Jaskinia 🕳️,95,Onix,18-25,20
+mt_mortar,Mt. Mortar (Johto),johto,Jaskinia 🕳️,236,Tyrogue,20-25,10
+mt_mortar,Mt. Mortar (Johto),johto,Jaskinia 🕳️,246,Larvitar,20-25,15
+victory_road_johto,Victory Road (Johto),johto,Jaskinia 🕳️,75,Graveler,35-42,30
+victory_road_johto,Victory Road (Johto),johto,Jaskinia 🕳️,42,Golbat,35-42,25
+victory_road_johto,Victory Road (Johto),johto,Jaskinia 🕳️,207,Gligar,35-42,25
+victory_road_johto,Victory Road (Johto),johto,Jaskinia 🕳️,126,Magmar,35-42,20
+rankor_route1,Route 1 (Rankor),rankor,Trawa 🌿,322,Numel,30-35,30
+rankor_route1,Route 1 (Rankor),rankor,Trawa 🌿,324,Torkoal,30-35,25
+rankor_route1,Route 1 (Rankor),rankor,Trawa 🌿,111,Rhyhorn,30-35,25
+rankor_route1,Route 1 (Rankor),rankor,Trawa 🌿,27,Sandshrew,30-35,20
+rankor_route2,Route 2 (Rankor),rankor,Trawa 🌿,228,Houndour,32-37,30
+rankor_route2,Route 2 (Rankor),rankor,Trawa 🌿,229,Houndoom,36-42,15
+rankor_route2,Route 2 (Rankor),rankor,Trawa 🌿,58,Growlithe,32-37,30
+rankor_route2,Route 2 (Rankor),rankor,Trawa 🌿,304,Aron,32-37,25
+rankor_route3,Route 3 (Rankor),rankor,Trawa 🌿,304,Aron,33-38,30
+rankor_route3,Route 3 (Rankor),rankor,Trawa 🌿,305,Lairon,38-43,15
+rankor_route3,Route 3 (Rankor),rankor,Trawa 🌿,246,Larvitar,33-38,30
+rankor_route3,Route 3 (Rankor),rankor,Trawa 🌿,342,Crawdaunt,33-38,25
+rankor_route4,Route 4 (Rankor),rankor,Trawa 🌿,318,Carvanha,35-40,30
+rankor_route4,Route 4 (Rankor),rankor,Trawa 🌿,339,Barboach,35-40,25
+rankor_route4,Route 4 (Rankor),rankor,Trawa 🌿,349,Feebas,35-40,10
+rankor_route4,Route 4 (Rankor),rankor,Trawa 🌿,341,Corphish,35-40,35
+rankor_route4,Route 4 (Rankor),rankor,Surfowanie 🏄,72,Tentacool,30-45,55
+rankor_route4,Route 4 (Rankor),rankor,Surfowanie 🏄,319,Sharpedo,35-45,45
+rankor_route5,Route 5 (Rankor),rankor,Trawa 🌿,371,Bagon,36-42,20
+rankor_route5,Route 5 (Rankor),rankor,Trawa 🌿,372,Shelgon,40-45,10
+rankor_route5,Route 5 (Rankor),rankor,Trawa 🌿,333,Swablu,36-42,30
+rankor_route5,Route 5 (Rankor),rankor,Trawa 🌿,334,Altaria,40-45,15
+rankor_route5,Route 5 (Rankor),rankor,Trawa 🌿,356,Dusclops,38-44,25
+mt_furnace,Mt. Furnace (Rankor),rankor,Jaskinia 🕳️,228,Houndour,35-42,30
+mt_furnace,Mt. Furnace (Rankor),rankor,Jaskinia 🕳️,229,Houndoom,40-48,15
+mt_furnace,Mt. Furnace (Rankor),rankor,Jaskinia 🕳️,322,Numel,35-42,25
+mt_furnace,Mt. Furnace (Rankor),rankor,Jaskinia 🕳️,323,Camerupt,42-48,15
+mt_furnace,Mt. Furnace (Rankor),rankor,Jaskinia 🕳️,126,Magmar,38-44,15
+volcanic_cave,Volcanic Cave (Rankor),rankor,Jaskinia 🕳️,324,Torkoal,40-48,35
+volcanic_cave,Volcanic Cave (Rankor),rankor,Jaskinia 🕳️,228,Houndour,40-48,30
+volcanic_cave,Volcanic Cave (Rankor),rankor,Jaskinia 🕳️,110,Weezing,40-48,20
+volcanic_cave,Volcanic Cave (Rankor),rankor,Jaskinia 🕳️,219,Magcargo,40-48,15
+rankor_forest,Rankor Forest,rankor,Trawa 🌿,246,Larvitar,38-44,25
+rankor_forest,Rankor Forest,rankor,Trawa 🌿,247,Pupitar,42-48,15
+rankor_forest,Rankor Forest,rankor,Trawa 🌿,352,Kecleon,38-44,20
+rankor_forest,Rankor Forest,rankor,Trawa 🌿,285,Shroomish,38-44,20
+rankor_forest,Rankor Forest,rankor,Trawa 🌿,286,Breloom,42-48,20
+victory_road_rankor,Victory Road (Rankor),rankor,Jaskinia 🕳️,375,Metang,42-50,25
+victory_road_rankor,Victory Road (Rankor),rankor,Jaskinia 🕳️,304,Aron,42-50,20
+victory_road_rankor,Victory Road (Rankor),rankor,Jaskinia 🕳️,305,Lairon,45-52,15
+victory_road_rankor,Victory Road (Rankor),rankor,Jaskinia 🕳️,359,Absol,42-50,20
+victory_road_rankor,Victory Road (Rankor),rankor,Jaskinia 🕳️,42,Golbat,42-50,20

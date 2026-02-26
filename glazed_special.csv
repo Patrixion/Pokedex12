@@ -1,0 +1,39 @@
+category,pokemon_id,pokemon_name,level,location,how,badge,region,note
+starters,252,Treecko,5,Mango City – od Prof. Willow,Wybierasz jako jeden z 5 starterów na początku gry,starter,tunod,
+starters,255,Torchic,5,Mango City – od Prof. Willow,Wybierasz jako jeden z 5 starterów na początku gry,starter,tunod,
+starters,258,Mudkip,5,Mango City – od Prof. Willow,Wybierasz jako jeden z 5 starterów na początku gry,starter,tunod,
+starters,1,Bulbasaur,5,Mango City – od Prof. Willow,Wybierasz jako jeden z 5 starterów na początku gry,starter,tunod,
+starters,4,Charmander,5,Mango City – od Prof. Willow,Wybierasz jako jeden z 5 starterów na początku gry,starter,tunod,
+gifts,175,Togepi (Jajko),1,Chocco Town,Jajko od przyjaciela na początku gry,gift,tunod,
+gifts,447,Riolu (Jajko),1,Seaspray Town – od Riley'a,Prezent po pomocy Riley'owi w Seaspray Dam,gift,tunod,
+gifts,133,Eevee,20,Oceanview City,Prezent od babci po zdobyciu 3 odznak,gift,tunod,
+gifts,438,Bonsly,15,Glenwood Town,Prezent od chłopca w Glenwood Town,gift,tunod,
+gifts,359,Absol,30,Haunted Forest,Absol dołącza po wydarzeniu fabularnym w Haunted Forest,gift,tunod,
+gifts,129,Magikarp,5,Chocco Town – handlarz,Kup za 500 Pokedolarów od handlarza,gift,tunod,
+gifts,440,Happiny (Jajko),1,Johto – Goldenrod City,Prezent od mężczyzny w Goldenrod City,gift,johto,
+gifts,106,Hitmonlee,25,Saffron City – Fighting Dojo,Wybierasz jednego po pokonaniu Karate King,gift,johto,Wybór!
+gifts,107,Hitmonchan,25,Saffron City – Fighting Dojo,Wybierasz jednego po pokonaniu Karate King,gift,johto,Wybór!
+fossils,138,Omanyte,20,Johto – Mt. Moon → Lab,"Wybierz Helix Fossil, odnów w laboratorium",fossil,johto,Wybór!
+fossils,140,Kabuto,20,Johto – Mt. Moon → Lab,"Wybierz Dome Fossil, odnów w laboratorium",fossil,johto,Wybór!
+fossils,142,Aerodactyl,20,Johto – Pewter Museum → Lab,"Zdobądź Old Amber z muzeum, odnów w laboratorium",fossil,johto,
+fossils,345,Lileep,20,Rankor – Devon Corp. Lab,"Wybierz Root Fossil, odnów w laboratorium Devon Corp.",fossil,rankor,Wybór!
+fossils,347,Anorith,20,Rankor – Devon Corp. Lab,"Wybierz Claw Fossil, odnów w laboratorium Devon Corp.",fossil,rankor,Wybór!
+legendary,377,Regirock,40,Tunod – Desert Ruins,Aktywuj ruiny używając Braille + Strength i Flash,legendary,tunod,
+legendary,378,Regice,40,Tunod – Island Cave,"Aktywuj jaskinię używając Braille, następnie odczekaj 2 minuty",legendary,tunod,
+legendary,379,Registeel,40,Tunod – Ancient Tomb,Aktywuj grób używając Braille + Fly i Strength,legendary,tunod,
+legendary,381,Latios,40,Tunod – Seaspray Ocean (wędruje),Wędrujący pokemon – złap używając Mean Look lub Arena Trap,roaming,tunod,
+legendary,380,Latias,40,Tunod – trasy (wędruje),Wędrujący pokemon – złap używając Mean Look lub Arena Trap,roaming,tunod,
+legendary,249,Lugia,45,Johto – Whirl Islands,Wymaga HM Surf + HM Waterfall. Najniższy poziom wyspy,legendary,johto,
+legendary,250,Ho-Oh,45,Johto – Tin Tower (Ecruteak City),Wymaga Sacred Ash + pokonania Elite Four Johto,legendary,johto,
+legendary,243,Raikou,40,Johto – trasy (wędruje),Wędrujący – pojawia się po zdarzeniu w Burned Tower,roaming,johto,
+legendary,244,Entei,40,Johto – trasy (wędruje),Wędrujący – pojawia się po zdarzeniu w Burned Tower,roaming,johto,
+legendary,245,Suicune,40,Johto – Route 25 (stacjonarny),Czeka na Route 25 po zdarzeniu w Burned Tower,legendary,johto,
+legendary,485,Heatran,50,Rankor – Mt. Furnace (szczyt),Dostępny po zdobyciu wszystkich odznak Rankor,legendary,rankor,
+legendary,487,Giratina,50,Rankor – Distortion Cave,Dostępny po pokonaniu E4 Rankor,legendary,rankor,
+legendary,483,Dialga,50,Rankor – Time & Space Tower,Dostępny z Adamant Orb po pokonaniu Archiego i Maxiego,legendary,rankor,Wybór!
+legendary,484,Palkia,50,Rankor – Time & Space Tower,Dostępny z Lustrous Orb po pokonaniu Archiego i Maxiego,legendary,rankor,Wybór!
+legendary,150,Mewtwo,70,Rankor – Darkwood Grotto,Dostępny po pokonaniu Elite Four Rankor. Wymaga HM Rock Climb,legendary,rankor,
+legendary,151,Mew,30,Rankor – Mew's Cave,Ukryta jaskinia dostępna z Old Rod w Rankor,legendary,rankor,
+trades,122,Mr. Mime,15,Tunod – Glenwood Town,Wymiana Abry za Mr. Mime od kobiety,trade,tunod,
+trades,203,Girafarig,20,Johto – Ecruteak City,Wymiana Wobbuffeta za Girafariga,trade,johto,
+trades,214,Heracross,25,Johto – Azalea Town,Wymiana Butterfree za Heracrossa od trenera,trade,johto,
